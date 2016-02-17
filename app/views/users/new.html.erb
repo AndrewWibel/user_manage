@@ -1,0 +1,18 @@
+<h1>New User</h1>
+<% if @user.errors.any? %>
+	<% @user.errors.full_messages.each do |message| %>
+		<p><%= message %></p>
+	<% end %>
+<% end %>	
+<form action='/users/create' method='post'>
+	<input type='hidden' value='<%= form_authenticity_token %>' name='authenticity_token'>
+	First name
+	<input type='text' name='first_name'>
+	Last name
+	<input type='text' name='last_name'>
+	Email
+	<input type='text' name='email_address'>
+	Password
+	<input type='text' name='password'>
+	<input type='submit' value='Create'>
+</form>
